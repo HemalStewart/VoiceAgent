@@ -24,6 +24,5 @@ frontend/build/
 # IDE & OS files
 .DS_Store
 *.pem
-.vscode/*
-!.vscode/settings.json
+.vscode/
 .idea/
