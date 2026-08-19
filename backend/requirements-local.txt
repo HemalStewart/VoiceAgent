@@ -1,0 +1,9 @@
+# Extra dependencies required for Local Offline Mode (requires Python 3.10+ for precompiled wheels)
+torch>=2.0.0
+transformers>=4.40.0
+faster-whisper>=1.0.0
+soundfile>=0.12.0
+scipy>=1.10.0
+kokoro>=0.7.0
+librosa>=0.10.0
+numpy>=1.22.0
