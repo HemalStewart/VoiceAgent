@@ -57,11 +57,11 @@ export default function TutorWorkspace() {
       
       analyser.getByteTimeDomainData(dataArray);
       
-      ctx.fillStyle = '#0d0e12';
+      ctx.fillStyle = '#0a0a0a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       ctx.lineWidth = 3;
-      ctx.strokeStyle = '#4f46e5';
+      ctx.strokeStyle = '#27272a';
       
       ctx.beginPath();
       
@@ -250,7 +250,7 @@ export default function TutorWorkspace() {
           <select
             value={persona}
             onChange={handlePersonaChange}
-            className="bg-[#1a1d29] border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
+            className="bg-[#18181b] border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
           >
             <option value="emma">Emma (British RP Accent)</option>
             <option value="alex">Alex (American Accent)</option>
@@ -264,7 +264,7 @@ export default function TutorWorkspace() {
           <select
             value={mode}
             onChange={handleModeChange}
-            className="bg-[#1a1d29] border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
+            className="bg-[#18181b] border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
           >
             <option value="free_chat">Free Conversation</option>
             <option value="guided">Guided Discussion</option>
@@ -302,14 +302,14 @@ export default function TutorWorkspace() {
 
         {/* State: Listening (Draw Canvas Waveform) */}
         {isRecording && (
-          <div className="w-64 h-36 flex items-center justify-center rounded-2xl overflow-hidden bg-[#0d0e12] border border-gray-900">
+          <div className="w-64 h-36 flex items-center justify-center rounded-2xl overflow-hidden bg-[#0a0a0a] border border-gray-900">
             <canvas ref={canvasRef} width={256} height={144} className="w-full h-full" />
           </div>
         )}
 
         {/* State: Idle */}
         {!isRecording && !isThinking && !isPlaying && (
-          <div className="w-36 h-36 rounded-full bg-[#1b2035] border-2 border-primary/30 flex items-center justify-center shadow-lg relative group">
+          <div className="w-36 h-36 rounded-full bg-[#18181b] border-2 border-primary/30 flex items-center justify-center shadow-lg relative group">
             <div className="absolute inset-0 rounded-full bg-primary/10 animate-ping opacity-60 pointer-events-none"></div>
             <Volume2 className="w-12 h-12 text-primary/75 group-hover:scale-110 transition duration-300" />
           </div>
@@ -334,7 +334,7 @@ export default function TutorWorkspace() {
           <button
             onClick={startRecording}
             disabled={isThinking || isPlaying}
-            className="flex items-center gap-3 bg-[#4f46e5] hover:bg-[#4338ca] text-white font-bold py-4 px-8 rounded-full shadow-md active:scale-95 disabled:opacity-50 disabled:scale-100 transition duration-300"
+            className="flex items-center gap-3 bg-[#27272a] hover:bg-[#1f1f23] text-white font-bold py-4 px-8 rounded-full shadow-md active:scale-95 disabled:opacity-50 disabled:scale-100 transition duration-300"
           >
             <Mic className="w-5 h-5" />
             Start Speaking
@@ -342,7 +342,7 @@ export default function TutorWorkspace() {
         ) : (
           <button
             onClick={stopRecording}
-            className="flex items-center gap-3 bg-[#db2777] hover:bg-[#be185d] text-white font-bold py-4 px-8 rounded-full shadow-md active:scale-95 transition duration-300 mic-active"
+            className="flex items-center gap-3 bg-[#e4e4e7] hover:bg-[#a1a1aa] text-white font-bold py-4 px-8 rounded-full shadow-md active:scale-95 transition duration-300 mic-active"
           >
             <Square className="w-5 h-5" />
             Stop & Submit

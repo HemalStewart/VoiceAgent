@@ -46,8 +46,8 @@ export default function TranscriptPanel() {
                 {/* Avatar Icon - Solid colors */}
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-md ${
                   isUser 
-                    ? 'bg-[#db2777] text-white' 
-                    : 'bg-[#4f46e5] text-white'
+                    ? 'bg-[#e4e4e7] text-white' 
+                    : 'bg-[#27272a] text-white'
                 }`}>
                   {isUser ? <User className="w-5 h-5" /> : <Sparkles className="w-5 h-5" />}
                 </div>
@@ -62,8 +62,8 @@ export default function TranscriptPanel() {
                   {/* Speech Bubble - Solid flat colors */}
                   <div className={`rounded-2xl px-5 py-3.5 text-sm font-medium shadow-md ${
                     isUser
-                      ? 'bg-[#22101b] text-pink-100 border border-[#db2777]/30 rounded-tr-none'
-                      : 'bg-[#121421] text-indigo-100 border border-[#4f46e5]/30 rounded-tl-none'
+                      ? 'bg-[#18181b] text-pink-100 border border-[#e4e4e7]/30 rounded-tr-none'
+                      : 'bg-[#121212] text-indigo-100 border border-[#27272a]/30 rounded-tl-none'
                   }`}>
                     {msg.content}
                     

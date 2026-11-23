@@ -26,3 +26,9 @@ frontend/build/
 *.pem
 .vscode/
 .idea/
+.next/
+.turbo/
+.env.*
+!.env.example
+__pycache__/
+*.log

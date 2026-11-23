@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
+/* Obsidian OLED. The single dark theme is pushed to true black and every chrome
+   palette is remapped to one achromatic grey ramp below; red stays for danger. */
 :root {
-  --background: #090a0f;
-  --foreground: #f3f4f6;
-  --primary: #4f46e5;
-  --secondary: #db2777;
-  --accent: #059669;
-  --card-bg: #11131e;
-  --border-color: #1e2235;
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --secondary: #a1a1aa;
+  --accent: #e4e4e7;
+  --card-bg: #121212;
+  --border-color: #27272a;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -16,119 +19,288 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@theme {
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f4f4f5;
+  --color-slate-200: #e4e4e7;
+  --color-slate-300: #d4d4d8;
+  --color-slate-400: #a1a1aa;
+  --color-slate-500: #71717a;
+  --color-slate-600: #52525b;
+  --color-slate-700: #27272a;
+  --color-slate-800: #1a1a1d;
+  --color-slate-900: #0f0f10;
+  --color-slate-950: #000000;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-600: #52525b;
+  --color-gray-700: #27272a;
+  --color-gray-800: #1a1a1d;
+  --color-gray-900: #0f0f10;
+  --color-gray-950: #000000;
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #27272a;
+  --color-zinc-800: #1a1a1d;
+  --color-zinc-900: #0f0f10;
+  --color-zinc-950: #000000;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f4f4f5;
+  --color-neutral-200: #e4e4e7;
+  --color-neutral-300: #d4d4d8;
+  --color-neutral-400: #a1a1aa;
+  --color-neutral-500: #71717a;
+  --color-neutral-600: #52525b;
+  --color-neutral-700: #27272a;
+  --color-neutral-800: #1a1a1d;
+  --color-neutral-900: #0f0f10;
+  --color-neutral-950: #000000;
+  --color-indigo-50: #f4f4f5;
+  --color-indigo-100: #e4e4e7;
+  --color-indigo-200: #e4e4e7;
+  --color-indigo-300: #e4e4e7;
+  --color-indigo-400: #ffffff;
+  --color-indigo-500: #ffffff;
+  --color-indigo-600: #e4e4e7;
+  --color-indigo-700: #d4d4d8;
+  --color-indigo-800: #a1a1aa;
+  --color-indigo-900: #71717a;
+  --color-indigo-950: #3f3f46;
+  --color-blue-50: #f4f4f5;
+  --color-blue-100: #e4e4e7;
+  --color-blue-200: #e4e4e7;
+  --color-blue-300: #e4e4e7;
+  --color-blue-400: #ffffff;
+  --color-blue-500: #ffffff;
+  --color-blue-600: #e4e4e7;
+  --color-blue-700: #d4d4d8;
+  --color-blue-800: #a1a1aa;
+  --color-blue-900: #71717a;
+  --color-blue-950: #3f3f46;
+  --color-sky-50: #f4f4f5;
+  --color-sky-100: #e4e4e7;
+  --color-sky-200: #e4e4e7;
+  --color-sky-300: #e4e4e7;
+  --color-sky-400: #ffffff;
+  --color-sky-500: #ffffff;
+  --color-sky-600: #e4e4e7;
+  --color-sky-700: #d4d4d8;
+  --color-sky-800: #a1a1aa;
+  --color-sky-900: #71717a;
+  --color-sky-950: #3f3f46;
+  --color-cyan-50: #f4f4f5;
+  --color-cyan-100: #e4e4e7;
+  --color-cyan-200: #e4e4e7;
+  --color-cyan-300: #e4e4e7;
+  --color-cyan-400: #ffffff;
+  --color-cyan-500: #ffffff;
+  --color-cyan-600: #e4e4e7;
+  --color-cyan-700: #d4d4d8;
+  --color-cyan-800: #a1a1aa;
+  --color-cyan-900: #71717a;
+  --color-cyan-950: #3f3f46;
+  --color-emerald-50: #f4f4f5;
+  --color-emerald-100: #e4e4e7;
+  --color-emerald-200: #e4e4e7;
+  --color-emerald-300: #e4e4e7;
+  --color-emerald-400: #ffffff;
+  --color-emerald-500: #ffffff;
+  --color-emerald-600: #e4e4e7;
+  --color-emerald-700: #d4d4d8;
+  --color-emerald-800: #a1a1aa;
+  --color-emerald-900: #71717a;
+  --color-emerald-950: #3f3f46;
+  --color-teal-50: #f4f4f5;
+  --color-teal-100: #e4e4e7;
+  --color-teal-200: #e4e4e7;
+  --color-teal-300: #e4e4e7;
+  --color-teal-400: #ffffff;
+  --color-teal-500: #ffffff;
+  --color-teal-600: #e4e4e7;
+  --color-teal-700: #d4d4d8;
+  --color-teal-800: #a1a1aa;
+  --color-teal-900: #71717a;
+  --color-teal-950: #3f3f46;
+  --color-green-50: #f4f4f5;
+  --color-green-100: #e4e4e7;
+  --color-green-200: #e4e4e7;
+  --color-green-300: #e4e4e7;
+  --color-green-400: #ffffff;
+  --color-green-500: #ffffff;
+  --color-green-600: #e4e4e7;
+  --color-green-700: #d4d4d8;
+  --color-green-800: #a1a1aa;
+  --color-green-900: #71717a;
+  --color-green-950: #3f3f46;
+  --color-lime-50: #f4f4f5;
+  --color-lime-100: #e4e4e7;
+  --color-lime-200: #e4e4e7;
+  --color-lime-300: #e4e4e7;
+  --color-lime-400: #ffffff;
+  --color-lime-500: #ffffff;
+  --color-lime-600: #e4e4e7;
+  --color-lime-700: #d4d4d8;
+  --color-lime-800: #a1a1aa;
+  --color-lime-900: #71717a;
+  --color-lime-950: #3f3f46;
+  --color-violet-50: #f4f4f5;
+  --color-violet-100: #e4e4e7;
+  --color-violet-200: #d4d4d8;
+  --color-violet-300: #d4d4d8;
+  --color-violet-400: #d4d4d8;
+  --color-violet-500: #d4d4d8;
+  --color-violet-600: #d4d4d8;
+  --color-violet-700: #a1a1aa;
+  --color-violet-800: #71717a;
+  --color-violet-900: #52525b;
+  --color-violet-950: #3f3f46;
+  --color-purple-50: #f4f4f5;
+  --color-purple-100: #e4e4e7;
+  --color-purple-200: #d4d4d8;
+  --color-purple-300: #d4d4d8;
+  --color-purple-400: #d4d4d8;
+  --color-purple-500: #d4d4d8;
+  --color-purple-600: #d4d4d8;
+  --color-purple-700: #a1a1aa;
+  --color-purple-800: #71717a;
+  --color-purple-900: #52525b;
+  --color-purple-950: #3f3f46;
+  --color-fuchsia-50: #f4f4f5;
+  --color-fuchsia-100: #e4e4e7;
+  --color-fuchsia-200: #d4d4d8;
+  --color-fuchsia-300: #d4d4d8;
+  --color-fuchsia-400: #d4d4d8;
+  --color-fuchsia-500: #d4d4d8;
+  --color-fuchsia-600: #d4d4d8;
+  --color-fuchsia-700: #a1a1aa;
+  --color-fuchsia-800: #71717a;
+  --color-fuchsia-900: #52525b;
+  --color-fuchsia-950: #3f3f46;
+  --color-pink-50: #f4f4f5;
+  --color-pink-100: #e4e4e7;
+  --color-pink-200: #d4d4d8;
+  --color-pink-300: #d4d4d8;
+  --color-pink-400: #d4d4d8;
+  --color-pink-500: #d4d4d8;
+  --color-pink-600: #d4d4d8;
+  --color-pink-700: #a1a1aa;
+  --color-pink-800: #71717a;
+  --color-pink-900: #52525b;
+  --color-pink-950: #3f3f46;
+  --color-rose-50: #f4f4f5;
+  --color-rose-100: #e4e4e7;
+  --color-rose-200: #d4d4d8;
+  --color-rose-300: #d4d4d8;
+  --color-rose-400: #d4d4d8;
+  --color-rose-500: #d4d4d8;
+  --color-rose-600: #d4d4d8;
+  --color-rose-700: #a1a1aa;
+  --color-rose-800: #71717a;
+  --color-rose-900: #52525b;
+  --color-rose-950: #3f3f46;
+  --color-amber-50: #f4f4f5;
+  --color-amber-100: #e4e4e7;
+  --color-amber-200: #d4d4d8;
+  --color-amber-300: #d4d4d8;
+  --color-amber-400: #a1a1aa;
+  --color-amber-500: #71717a;
+  --color-amber-600: #52525b;
+  --color-amber-700: #3f3f46;
+  --color-amber-800: #27272a;
+  --color-amber-900: #1a1a1d;
+  --color-amber-950: #0a0a0a;
+  --color-yellow-50: #f4f4f5;
+  --color-yellow-100: #e4e4e7;
+  --color-yellow-200: #d4d4d8;
+  --color-yellow-300: #d4d4d8;
+  --color-yellow-400: #a1a1aa;
+  --color-yellow-500: #71717a;
+  --color-yellow-600: #52525b;
+  --color-yellow-700: #3f3f46;
+  --color-yellow-800: #27272a;
+  --color-yellow-900: #1a1a1d;
+  --color-yellow-950: #0a0a0a;
+  --color-orange-50: #f4f4f5;
+  --color-orange-100: #e4e4e7;
+  --color-orange-200: #d4d4d8;
+  --color-orange-300: #d4d4d8;
+  --color-orange-400: #a1a1aa;
+  --color-orange-500: #71717a;
+  --color-orange-600: #52525b;
+  --color-orange-700: #3f3f46;
+  --color-orange-800: #27272a;
+  --color-orange-900: #1a1a1d;
+  --color-orange-950: #0a0a0a;
 }
 
 body {
-  background-color: var(--background);
+  background-color: #000000;
   color: var(--foreground);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.006em;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Flat Premium Panels */
+::selection { background: #ffffff; color: #000000; }
+.bg-white { background-color: #121212 !important; }
+
+/* Flat hairline panels — no coloured glow. */
 .glass-panel {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: none;
   transition: all 0.2s ease-in-out;
 }
-
 .glass-panel:hover {
-  border-color: #3b82f6;
-  box-shadow: 0 4px 24px 0 rgba(59, 130, 246, 0.08);
+  border-color: #3f3f46;
+  box-shadow: none;
 }
 
-/* Pulsing rings for microphone recording state - solid colors */
+/* Mic pulse — white ring. */
 @keyframes pulse-ring {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(219, 39, 119, 0.5);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 15px rgba(219, 39, 119, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(219, 39, 119, 0);
-  }
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
+.mic-active { animation: pulse-ring 1.8s cubic-bezier(0.66, 0, 0, 1) infinite; }
 
-.mic-active {
-  animation: pulse-ring 1.8s cubic-bezier(0.66, 0, 0, 1) infinite;
-}
-
-/* Siri-like organic breathing orb animations */
-@keyframes siri-orb-1 {
-  0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.65; }
-  55% { transform: scale(1.25) translate(-8px, 6px); opacity: 0.85; }
-}
-
-@keyframes siri-orb-2 {
-  0%, 100% { transform: scale(1.15) translate(0px, 0px); opacity: 0.55; }
-  45% { transform: scale(0.85) translate(8px, -6px); opacity: 0.75; }
-}
-
-@keyframes siri-orb-3 {
-  0%, 100% { transform: scale(0.9) translate(0px, 0px); opacity: 0.75; }
-  50% { transform: scale(1.2) translate(-5px, -5px); opacity: 0.85; }
-}
-
-.siri-orb {
-  border-radius: 50%;
-  filter: blur(10px);
-}
-.siri-orb-indigo {
-  background-color: var(--primary);
-  animation: siri-orb-1 4.5s ease-in-out infinite;
-}
-.siri-orb-pink {
-  background-color: var(--secondary);
-  animation: siri-orb-2 3.8s ease-in-out infinite;
-}
-.siri-orb-emerald {
-  background-color: var(--accent);
-  animation: siri-orb-3 4.8s ease-in-out infinite;
-}
+/* Siri-like breathing orbs (now monochrome). */
+@keyframes siri-orb-1 { 0%,100% { transform: scale(1) translate(0,0); opacity: 0.4; } 55% { transform: scale(1.25) translate(-8px,6px); opacity: 0.6; } }
+@keyframes siri-orb-2 { 0%,100% { transform: scale(1.15) translate(0,0); opacity: 0.32; } 45% { transform: scale(0.85) translate(8px,-6px); opacity: 0.5; } }
+@keyframes siri-orb-3 { 0%,100% { transform: scale(0.9) translate(0,0); opacity: 0.45; } 50% { transform: scale(1.2) translate(-5px,-5px); opacity: 0.6; } }
+.siri-orb { border-radius: 50%; filter: blur(10px); }
+.siri-orb-indigo { background-color: #d4d4d8; animation: siri-orb-1 4.5s ease-in-out infinite; }
+.siri-orb-pink { background-color: #71717a; animation: siri-orb-2 3.8s ease-in-out infinite; }
+.siri-orb-emerald { background-color: #a1a1aa; animation: siri-orb-3 4.8s ease-in-out infinite; }
 
 /* Speaking waves */
-@keyframes voice-bar {
-  0%, 100% {
-    transform: scaleY(0.2);
-  }
-  50% {
-    transform: scaleY(1);
-  }
-}
-
+@keyframes voice-bar { 0%,100% { transform: scaleY(0.2); } 50% { transform: scaleY(1); } }
 .bar-anim-1 { animation: voice-bar 0.6s ease-in-out infinite alternate; }
 .bar-anim-2 { animation: voice-bar 0.8s ease-in-out infinite alternate; }
 .bar-anim-3 { animation: voice-bar 0.5s ease-in-out infinite alternate; }
 .bar-anim-4 { animation: voice-bar 0.9s ease-in-out infinite alternate; }
 .bar-anim-5 { animation: voice-bar 0.7s ease-in-out infinite alternate; }
 
-/* Custom scrollbars */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #52525b; }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1e2235;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2b304a;
-}
-
-/* Accent badges - flat colors */
-.badge-cefr {
-  background-color: var(--accent);
-}
+/* CEFR badge — neutral. */
+.badge-cefr { background-color: #27272a; }

@@ -8,16 +8,16 @@ import { Sparkles, MessageCircle, Mic, Star } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="h-screen w-screen flex flex-col p-4 md:p-6 gap-6 bg-[#090a0f] text-gray-100 overflow-hidden">
+    <div className="h-screen w-screen flex flex-col p-4 md:p-6 gap-6 bg-[#000000] text-gray-100 overflow-hidden">
       {/* Header section (Flat dark border, no gradients) */}
-      <header className="flex flex-col sm:flex-row items-center justify-between border-b border-[#1e2235] pb-4 shrink-0 gap-4">
+      <header className="flex flex-col sm:flex-row items-center justify-between border-b border-[#27272a] pb-4 shrink-0 gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#4f46e5] flex items-center justify-center shadow-md">
+          <div className="w-10 h-10 rounded-xl bg-[#27272a] flex items-center justify-center shadow-md">
             <Mic className="w-5 h-5 text-white" />
           </div>
           <div>
             <h1 className="text-xl font-black tracking-tight text-white flex items-center gap-2">
-              EnglishMind <span className="text-[10px] bg-[#1e2235] text-indigo-400 border border-[#2b304a] font-bold px-2 py-0.5 rounded-full">v1.0 AI Tutor</span>
+              EnglishMind <span className="text-[10px] bg-[#27272a] text-indigo-400 border border-[#3f3f46] font-bold px-2 py-0.5 rounded-full">v1.0 AI Tutor</span>
             </h1>
             <p className="text-[11px] text-gray-400 font-medium">Your personal high-accuracy spoken English learning companion</p>
           </div>
@@ -25,15 +25,15 @@ export default function Home() {
 
         {/* Feature Highlights (Flat backgrounds, no gradients) */}
         <div className="flex items-center gap-3 text-[10px] text-gray-400">
-          <div className="flex items-center gap-1.5 bg-[#11131e] px-2.5 py-1 rounded-xl border border-[#1e2235]">
+          <div className="flex items-center gap-1.5 bg-[#121212] px-2.5 py-1 rounded-xl border border-[#27272a]">
             <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
             <span>Whisper Speech ASR</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-[#11131e] px-2.5 py-1 rounded-xl border border-[#1e2235]">
+          <div className="flex items-center gap-1.5 bg-[#121212] px-2.5 py-1 rounded-xl border border-[#27272a]">
             <Star className="w-3.5 h-3.5 text-pink-500" />
             <span>Kokoro-82M TTS Voice</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-[#11131e] px-2.5 py-1 rounded-xl border border-[#1e2235]">
+          <div className="flex items-center gap-1.5 bg-[#121212] px-2.5 py-1 rounded-xl border border-[#27272a]">
             <MessageCircle className="w-3.5 h-3.5 text-emerald-500" />
             <span>CEFR & Grammar Feedback</span>
           </div>
@@ -49,8 +49,8 @@ export default function Home() {
           </div>
           
           {/* Quick tips panel (Flat styles) */}
-          <div className="glass-panel rounded-2xl p-4 border-l-4 border-l-[#4f46e5] flex gap-3 shrink-0">
-            <div className="w-8 h-8 rounded-full bg-[#1e2235] flex items-center justify-center shrink-0 text-indigo-400">
+          <div className="glass-panel rounded-2xl p-4 border-l-4 border-l-[#27272a] flex gap-3 shrink-0">
+            <div className="w-8 h-8 rounded-full bg-[#27272a] flex items-center justify-center shrink-0 text-indigo-400">
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
@@ -74,7 +74,7 @@ export default function Home() {
       </main>
 
       {/* Footer (Shrink to fit) */}
-      <footer className="border-t border-[#1e2235] pt-3 text-center text-[10px] text-gray-500 shrink-0">
+      <footer className="border-t border-[#27272a] pt-3 text-center text-[10px] text-gray-500 shrink-0">
         <p>© 2026 EnglishMind AI Agent Platform. 100% Private, Self-Hosted Speech Pipeline.</p>
       </footer>
     </div>
