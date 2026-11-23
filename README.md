@@ -29,6 +29,7 @@ Student Speaks (Browser Audio Capture)
 ## Tech Stack & Features
 
 - **Frontend**: Next.js App Router, Tailwind CSS, Zustand, Lucide Icons, Canvas API (Realtime microphone waveform visualizer).
+- **Mobile App**: Flutter (iOS, Android, macOS), Provider, Record (16kHz audio capture), Audioplayers, Siri-like Orb & Waveform Visualizers.
 - **Backend API**: FastAPI (Python), Uvicorn.
 - **Database**: SQLite3 (Local file-based database for session tracking, message history, and learning analytics).
 - **Speech-to-Text (STT)**: local `faster-whisper` or cloud `OpenAI Whisper`.
@@ -94,3 +95,7 @@ To run everything locally without external API tokens, set `MODEL_MODE=local` in
 - [backend/services/database.py](file:///Users/lakminiinternational/VoiceAgent/backend/services/database.py): SQLite helper functions.
 - [frontend/src/app/page.tsx](file:///Users/lakminiinternational/VoiceAgent/frontend/src/app/page.tsx): Main dashboard layout.
 - [frontend/src/store/voiceStore.ts](file:///Users/lakminiinternational/VoiceAgent/frontend/src/store/voiceStore.ts): Zustand state store managing audio recordings, REST communications, and playback.
+- [mobile/lib/main.dart](file:///Volumes/Dilmith%20Ext/VoiceAgent/mobile/lib/main.dart): Flutter mobile app entrypoint and navigation.
+- [mobile/lib/screens/home_screen.dart](file:///Volumes/Dilmith%20Ext/VoiceAgent/mobile/lib/screens/home_screen.dart): Voice workspace, Siri orb avatar, and recording controls.
+- [mobile/lib/services/api_service.dart](file:///Volumes/Dilmith%20Ext/VoiceAgent/mobile/lib/services/api_service.dart): Mobile REST & multipart speech API client.
+- [mobile/README.md](file:///Volumes/Dilmith%20Ext/VoiceAgent/mobile/README.md): Mobile setup and permissions guide.
