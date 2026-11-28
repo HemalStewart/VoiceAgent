@@ -4,6 +4,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useVoiceStore } from '@/store/voiceStore';
 import { Mic, Square, Sparkles, Volume2, HelpCircle } from 'lucide-react';
 
+/** Reads a kit token at draw time so the waveform follows the light / dark theme. */
+const cssVar = (name: string, fallback: string) =>
+  getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
+
 export default function TutorWorkspace() {
   const {
     persona,
@@ -57,11 +61,11 @@ export default function TutorWorkspace() {
       
       analyser.getByteTimeDomainData(dataArray);
       
-      ctx.fillStyle = '#0a0a0a';
+      ctx.fillStyle = cssVar('--q-n-950', '#09090b');
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       ctx.lineWidth = 3;
-      ctx.strokeStyle = '#27272a';
+      ctx.strokeStyle = cssVar('--q-n-600', '#52525b');
       
       ctx.beginPath();
       
@@ -243,14 +247,14 @@ export default function TutorWorkspace() {
     <div className="glass-panel rounded-2xl p-6 flex flex-col items-center justify-between h-full relative overflow-hidden">
 
       {/* Control bar */}
-      <div className="w-full flex flex-col sm:flex-row gap-4 justify-between items-center z-10">
+      <div className="w-full flex flex-wrap gap-x-4 gap-y-3 justify-between items-center z-10">
         {/* Persona Select */}
-        <div className="flex items-center gap-2">
+        <div className="flex min-w-0 items-center gap-2">
           <span className="text-sm font-semibold text-gray-400">Teacher:</span>
           <select
             value={persona}
             onChange={handlePersonaChange}
-            className="bg-[#18181b] border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
+            className="min-w-0 max-w-full bg-zinc-800/60 border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
           >
             <option value="emma">Emma (British RP Accent)</option>
             <option value="alex">Alex (American Accent)</option>
@@ -259,12 +263,12 @@ export default function TutorWorkspace() {
         </div>
 
         {/* Mode Select */}
-        <div className="flex items-center gap-2">
+        <div className="flex min-w-0 items-center gap-2">
           <span className="text-sm font-semibold text-gray-400">Mode:</span>
           <select
             value={mode}
             onChange={handleModeChange}
-            className="bg-[#18181b] border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
+            className="min-w-0 max-w-full bg-zinc-800/60 border border-gray-800 text-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary transition"
           >
             <option value="free_chat">Free Conversation</option>
             <option value="guided">Guided Discussion</option>
@@ -285,7 +289,7 @@ export default function TutorWorkspace() {
             <div className="absolute w-28 h-28 siri-orb siri-orb-emerald opacity-70"></div>
             
             {/* Core point */}
-            <div className="absolute w-6 h-6 rounded-full bg-white shadow-lg shadow-white/80 animate-pulse"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-white shadow-lg shadow-white/40 animate-pulse"></div>
           </div>
         )}
 
@@ -302,14 +306,14 @@ export default function TutorWorkspace() {
 
         {/* State: Listening (Draw Canvas Waveform) */}
         {isRecording && (
-          <div className="w-64 h-36 flex items-center justify-center rounded-2xl overflow-hidden bg-[#0a0a0a] border border-gray-900">
+          <div className="w-64 h-36 flex items-center justify-center rounded-2xl overflow-hidden bg-zinc-950 border border-gray-900">
             <canvas ref={canvasRef} width={256} height={144} className="w-full h-full" />
           </div>
         )}
 
         {/* State: Idle */}
         {!isRecording && !isThinking && !isPlaying && (
-          <div className="w-36 h-36 rounded-full bg-[#18181b] border-2 border-primary/30 flex items-center justify-center shadow-lg relative group">
+          <div className="w-36 h-36 rounded-full bg-zinc-800/60 border-2 border-primary/30 flex items-center justify-center shadow-lg relative group">
             <div className="absolute inset-0 rounded-full bg-primary/10 animate-ping opacity-60 pointer-events-none"></div>
             <Volume2 className="w-12 h-12 text-primary/75 group-hover:scale-110 transition duration-300" />
           </div>
@@ -334,7 +338,7 @@ export default function TutorWorkspace() {
           <button
             onClick={startRecording}
             disabled={isThinking || isPlaying}
-            className="flex items-center gap-3 bg-[#27272a] hover:bg-[#1f1f23] text-white font-bold py-4 px-8 rounded-full shadow-md active:scale-95 disabled:opacity-50 disabled:scale-100 transition duration-300"
+            className="flex items-center gap-3 bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-4 px-8 rounded-full shadow-md active:scale-95 disabled:opacity-50 disabled:scale-100 transition duration-300"
           >
             <Mic className="w-5 h-5" />
             Start Speaking
@@ -342,7 +346,7 @@ export default function TutorWorkspace() {
         ) : (
           <button
             onClick={stopRecording}
-            className="flex items-center gap-3 bg-[#e4e4e7] hover:bg-[#a1a1aa] text-white font-bold py-4 px-8 rounded-full shadow-md active:scale-95 transition duration-300 mic-active"
+            className="flex items-center gap-3 bg-white hover:bg-zinc-300 text-black font-bold py-4 px-8 rounded-full shadow-md active:scale-95 transition duration-300 mic-active"
           >
             <Square className="w-5 h-5" />
             Stop & Submit

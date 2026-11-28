@@ -10,7 +10,9 @@ export default function TranscriptPanel() {
 
   // Auto-scroll to bottom
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Scroll only the message list (scrollIntoView would also scroll the Quantum shell's canvas).
+    const list = bottomRef.current?.parentElement;
+    if (list) list.scrollTo({ top: list.scrollHeight, behavior: 'smooth' });
   }, [messages]);
 
   return (
@@ -45,9 +47,9 @@ export default function TranscriptPanel() {
               >
                 {/* Avatar Icon - Solid colors */}
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-md ${
-                  isUser 
-                    ? 'bg-[#e4e4e7] text-white' 
-                    : 'bg-[#27272a] text-white'
+                  isUser
+                    ? 'bg-white text-black'
+                    : 'bg-zinc-800 text-white'
                 }`}>
                   {isUser ? <User className="w-5 h-5" /> : <Sparkles className="w-5 h-5" />}
                 </div>
@@ -62,11 +64,11 @@ export default function TranscriptPanel() {
                   {/* Speech Bubble - Solid flat colors */}
                   <div className={`rounded-2xl px-5 py-3.5 text-sm font-medium shadow-md ${
                     isUser
-                      ? 'bg-[#18181b] text-pink-100 border border-[#e4e4e7]/30 rounded-tr-none'
-                      : 'bg-[#121212] text-indigo-100 border border-[#27272a]/30 rounded-tl-none'
+                      ? 'bg-zinc-800/60 text-pink-100 border border-zinc-200/30 rounded-tr-none'
+                      : 'bg-zinc-900 text-indigo-100 border border-zinc-800/30 rounded-tl-none'
                   }`}>
                     {msg.content}
-                    
+
                     {/* Inline Pronunciation Targets (Assistant) */}
                     {!isUser && msg.pronunciation_targets && msg.pronunciation_targets.length > 0 && (
                       <div className="mt-3 pt-2.5 border-t border-gray-800 flex flex-wrap items-center gap-1.5 text-xs text-gray-400">

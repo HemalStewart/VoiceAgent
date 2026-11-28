@@ -41,7 +41,7 @@ export default function FeedbackPanel() {
         {sessionId && (
           <button
             onClick={resetSession}
-            className="text-xs text-gray-400 hover:text-white flex items-center gap-1 bg-[#18181b] px-2.5 py-1.5 rounded-lg border border-gray-800 transition"
+            className="text-xs text-gray-400 hover:text-white flex items-center gap-1 bg-zinc-800/60 px-2.5 py-1.5 rounded-lg border border-gray-800 transition"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             Reset Session
@@ -51,7 +51,7 @@ export default function FeedbackPanel() {
 
       <div className="flex-1 overflow-y-auto space-y-6 pr-2">
         {/* CEFR Rank Card - Solid layout (No gradients) */}
-        <div className="bg-[#121212] border border-[#27272a]/30 rounded-2xl p-5 flex items-center justify-between">
+        <div className="bg-zinc-900 border border-zinc-800/30 rounded-2xl p-5 flex items-center justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">Estimated Level</span>
             <span className="text-lg font-extrabold text-white">CEFR Fluency Ranking</span>
@@ -69,14 +69,14 @@ export default function FeedbackPanel() {
             Grammar Improvements ({currentCorrections.length})
           </h3>
           {currentCorrections.length === 0 ? (
-            <div className="bg-[#121212] rounded-2xl p-4 text-center border border-gray-900">
+            <div className="bg-zinc-900 rounded-2xl p-4 text-center border border-gray-900">
               <p className="text-xs text-gray-400">No grammar mistakes detected so far!</p>
               <p className="text-[10px] text-gray-500 mt-0.5">Keep speaking naturally to evaluate your skills.</p>
             </div>
           ) : (
             <div className="space-y-3">
               {currentCorrections.slice(-3).map((corr, idx) => (
-                <div key={idx} className="bg-[#18181b] border border-red-500/10 rounded-xl p-4 space-y-2">
+                <div key={idx} className="bg-zinc-800/60 border border-red-500/10 rounded-xl p-4 space-y-2">
                   <div className="text-xs leading-relaxed">
                     <span className="text-gray-400 font-bold block text-[10px] uppercase tracking-wider mb-1">Original:</span>
                     <span className="line-through text-red-400 bg-red-950/20 px-2 py-0.5 rounded font-medium">{corr.original}</span>
@@ -101,13 +101,13 @@ export default function FeedbackPanel() {
             Natural Suggestions
           </h3>
           {currentSuggestions.length === 0 ? (
-            <div className="bg-[#121212] rounded-2xl p-4 text-center border border-gray-900">
+            <div className="bg-zinc-900 rounded-2xl p-4 text-center border border-gray-900">
               <p className="text-xs text-gray-400">Suggestions will appear here as the conversation develops.</p>
             </div>
           ) : (
             <ul className="space-y-2.5">
               {currentSuggestions.slice(-3).map((sug, idx) => (
-                <li key={idx} className="bg-[#121212] border border-gray-800/80 rounded-xl p-3 flex gap-2 text-xs text-gray-300">
+                <li key={idx} className="bg-zinc-900 border border-gray-800/80 rounded-xl p-3 flex gap-2 text-xs text-gray-300">
                   <BookOpen className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
                   <span>{sug}</span>
                 </li>
@@ -121,11 +121,11 @@ export default function FeedbackPanel() {
           <div className="pt-4 border-t border-gray-800/80">
             <h3 className="text-sm font-bold text-gray-300 mb-3">Lifetime Learning History</h3>
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#121212] rounded-xl p-3 text-center border border-gray-900">
+              <div className="bg-zinc-900 rounded-xl p-3 text-center border border-gray-900">
                 <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Total Conversations</span>
                 <span className="block text-xl font-extrabold text-white mt-1">{analytics.total_sessions}</span>
               </div>
-              <div className="bg-[#121212] rounded-xl p-3 text-center border border-gray-900">
+              <div className="bg-zinc-900 rounded-xl p-3 text-center border border-gray-900">
                 <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Words Transcribed</span>
                 <span className="block text-xl font-extrabold text-white mt-1">{analytics.total_user_messages}</span>
               </div>
